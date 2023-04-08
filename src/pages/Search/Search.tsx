@@ -1,6 +1,7 @@
 import Container from '../../common/Container';
 import Avatar from '../../common/Avatar';
 import Card from '../../common/Card';
+import Error from '../../common/Error';
 import { useParams } from 'react-router-dom';
 import { usePokemonQuery } from '../../queries/usePokemonQuery';
 
@@ -13,7 +14,7 @@ function Search() {
   }
 
   if (isError) {
-    return <h3>Pokemon not found</h3>;
+    return <Error>No results found for pokemon: {`"${name}"`}</Error>;
   }
 
   return (

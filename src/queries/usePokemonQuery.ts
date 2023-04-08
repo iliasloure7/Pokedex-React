@@ -5,4 +5,5 @@ export const usePokemonQuery = (name: string) =>
   useQuery({
     queryKey: ['pokemon', name],
     queryFn: () => getPokemon(name),
+    retry: 2,
   });

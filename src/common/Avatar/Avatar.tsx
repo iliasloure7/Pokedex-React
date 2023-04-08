@@ -2,13 +2,9 @@ import { Link } from 'react-router-dom';
 import { extractIdFromUrl } from '../../utils';
 import { Paths } from '../../constants';
 import { useLocation } from 'react-router-dom';
+import { Pokemon } from '../../api/PokemonApi/types';
 
-type Props = {
-  name: string;
-  url: string;
-};
-
-function Avatar({ name, url }: Props) {
+function Avatar({ name, url }: Pokemon) {
   const pokemonId = extractIdFromUrl(url);
   const location = useLocation();
   return (
