@@ -1,5 +1,6 @@
 import PokemonItem from '../PokemonItem';
 import Pagination from '../Pagination/Pagination';
+import Spinner from '../../common/Spinner';
 import { usePokemonsQuery } from '../../queries/usePokemonsQuery';
 import { usePokemonContext } from '../../context/PokemonProvider';
 
@@ -7,7 +8,7 @@ function PokemonList() {
   const { limit, offset } = usePokemonContext();
   const { data, isLoading, isError } = usePokemonsQuery(limit, offset);
 
-  if (isLoading) return <h3>Loading...</h3>;
+  if (isLoading) return <Spinner />;
 
   if (isError) return <h3>error</h3>;
 

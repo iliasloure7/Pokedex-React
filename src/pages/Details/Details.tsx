@@ -1,6 +1,7 @@
 import Container from '../../common/Container';
 import Avatar from '../../common/Avatar';
 import PokemonDetails from '../../components/PokemonDetails';
+import Spinner from '../../common/Spinner';
 import { useParams } from 'react-router-dom';
 import { usePokemonDetailsQuery } from '../../queries/usePokemonDetailsQuery';
 
@@ -9,7 +10,7 @@ function Details() {
   const { data, isLoading, isError } = usePokemonDetailsQuery(id!);
 
   if (isLoading) {
-    return <h3>Loading...</h3>;
+    return <Spinner />;
   }
 
   if (isError) {

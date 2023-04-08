@@ -2,6 +2,7 @@ import Container from '../../common/Container';
 import Avatar from '../../common/Avatar';
 import Card from '../../common/Card';
 import Error from '../../common/Error';
+import Spinner from '../../common/Spinner';
 import { useParams } from 'react-router-dom';
 import { usePokemonQuery } from '../../queries/usePokemonQuery';
 
@@ -10,7 +11,7 @@ function Search() {
   const { data, isError, isLoading } = usePokemonQuery(name!);
 
   if (isLoading) {
-    return <h3>Loading...</h3>;
+    return <Spinner />;
   }
 
   if (isError) {
