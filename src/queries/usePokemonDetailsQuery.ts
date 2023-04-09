@@ -5,4 +5,5 @@ export const usePokemonDetailsQuery = (id: string) =>
   useQuery({
     queryKey: ['details', id],
     queryFn: () => getPokemonDetails(id),
+    retry: 1,
   });
