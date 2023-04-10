@@ -1,22 +1,23 @@
 import { Link } from 'react-router-dom';
 import { extractIdFromUrl } from '../../utils';
 import { Paths } from '../../constants';
-import { useLocation } from 'react-router-dom';
 import { Pokemon } from '../../api/PokemonApi/types';
 
-function Avatar({ name, url }: Pokemon) {
-  const pokemonId = extractIdFromUrl(url);
-  const location = useLocation();
+type Props = {
+  pokemon: Pokemon;
+  size?: string;
+};
+
+function Avatar({ pokemon, size = 'w-auto' }: Props) {
+  const pokemonId = extractIdFromUrl(pokemon.url);
+
   return (
-    <Link to={`${Paths.DETAILS}/${pokemonId}`}>
+    <Link to={`${Paths.DETAILS}/${pokemonId}`} draggable={false}>
       <img
-        className={
-          location.pathname !== `${Paths.DETAILS}/${pokemonId}`
-            ? `rounded-t-lg bg-gray-200`
-            : 'block mx-auto'
-        }
+        className={`rounded-t-lg bg-gray-200 block mx-auto ${size}`}
         src={`${import.meta.env.VITE_POKEMON_API_IMAGE_URL}/${pokemonId}.png`}
-        alt={name}
+        alt={pokemon.name}
+        draggable={false}
       />
     </Link>
   );

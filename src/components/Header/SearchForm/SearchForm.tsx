@@ -13,7 +13,7 @@ function SearchForm() {
 
   const onSubmit: SubmitHandler<InputProps> = ({ search }) => {
     resetField('search');
-    navigate(`${Paths.SEARCH}/${search}`);
+    navigate(`${Paths.SEARCH}/${search.trim().toLowerCase()}`);
   };
 
   return (
@@ -36,9 +36,7 @@ function SearchForm() {
           required: true,
         })}
       />
-      <button className='btn rounded-md bg-teal-800 text-white tracking-wider hover:bg-teal-700'>
-        Search
-      </button>
+      <button className='btn btn-primary tracking-wider'>Search</button>
     </form>
   );
 }

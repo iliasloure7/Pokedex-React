@@ -12,6 +12,14 @@
 
 @layer components {
   .btn {
-    @apply inline-block px-4 py-2 cursor-pointer border-none;
+    @apply inline-block px-4 py-2 cursor-pointer border-none rounded-md;
+  }
+
+  .btn-primary {
+    @apply bg-teal-800 text-white hover:bg-teal-700;
+  }
+
+  .btn-dark {
+    @apply bg-gray-800 text-white hover:bg-gray-700;
   }
 }

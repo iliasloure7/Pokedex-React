@@ -8,7 +8,7 @@ import { usePokemonQuery } from '../../queries/usePokemonQuery';
 
 function Search() {
   const { name } = useParams();
-  const { data, isError, isLoading } = usePokemonQuery(name!);
+  const { data, isError, isLoading, error } = usePokemonQuery(name!);
 
   if (isLoading) {
     return <Spinner />;
@@ -22,7 +22,7 @@ function Search() {
     <Container>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
         <Card>
-          <Avatar name={name!} url={data?.forms[0].url!} />
+          <Avatar pokemon={{ name: data.name, url: data.forms[0].url }} />
           <h2 className='p-4 text-xl'>{name}</h2>
         </Card>
       </div>

@@ -2,33 +2,33 @@ import Avatar from '../../common/Avatar';
 import Card from '../../common/Card';
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
 import { Pokemon } from '../../api/PokemonApi/types';
-import { useState } from 'react';
+import { usePokemonContext } from '../../context/PokemonProvider/PokemonProvider';
 
 type Props = {
   pokemon: Pokemon;
 };
 
 function PokemonItem({ pokemon }: Props) {
-  const [isFavorite, setIsFavorite] = useState<boolean>(false);
+  const { favoritesPokemons, addToFavorites, removeFromFavorites } =
+    usePokemonContext();
 
   return (
     <li>
       <Card>
-        <Avatar {...pokemon} />
+        <Avatar pokemon={pokemon} size='w-auto' />
         <div className='flex items-center justify-between p-4'>
           <h2 className='text-xl'>{pokemon.name}</h2>
-          {!isFavorite && (
-            <MdFavoriteBorder
-              size={24}
-              className='cursor-pointer text-red-500'
-              onClick={() => setIsFavorite(true)}
-            />
-          )}
-          {isFavorite && (
+          {favoritesPokemons.find((p) => p.name === pokemon.name) ? (
             <MdFavorite
               size={24}
               className='cursor-pointer text-red-500'
-              onClick={() => setIsFavorite(false)}
+              onClick={() => removeFromFavorites(pokemon)}
+            />
+          ) : (
+            <MdFavoriteBorder
+              size={24}
+              className='cursor-pointer text-red-500'
+              onClick={() => addToFavorites(pokemon)}
             />
           )}
         </div>

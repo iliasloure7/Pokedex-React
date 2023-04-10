@@ -1,4 +1,4 @@
-import { usePokemonContext } from '../../context/PokemonProvider';
+import { usePokemonContext } from '../../context/PokemonProvider/PokemonProvider';
 
 function Pagination() {
   const { limit, offset, setOffset } = usePokemonContext();
@@ -18,7 +18,9 @@ function Pagination() {
   return (
     <div className='flex items-center justify-center gap-4 mt-6'>
       <button
-        className={`btn ${disabledColor} text-white`}
+        className={`btn btn-dark ${disabledColor} ${
+          offset / limit === 0 ? 'pointer-events-none' : ''
+        }`}
         onClick={handlePrev}
         disabled={offset / limit === 0 ? true : false}
       >
@@ -26,7 +28,7 @@ function Pagination() {
       </button>
       <span>{offset / limit + 1}</span>
       <button
-        className='btn bg-gray-800 text-white'
+        className='btn btn-dark'
         onClick={() => setOffset(offset + limit)}
       >
         &gt;

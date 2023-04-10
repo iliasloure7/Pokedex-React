@@ -1,10 +1,11 @@
+import Overlay from '../Overlay';
 import spinner from '../../assets/images/svg/spinner.svg';
 
 function Spinner() {
   return (
-    <div className='absolute top-0 left-0 w-full h-screen bg-gray-950 opacity-60 flex items-center justify-center'>
+    <Overlay alignItems='items-center' justifyContent='justify-center'>
       <img src={spinner} alt='spinner' />
-    </div>
+    </Overlay>
   );
 }
 
