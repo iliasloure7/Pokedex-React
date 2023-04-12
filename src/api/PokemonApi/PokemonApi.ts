@@ -12,7 +12,7 @@ export const getPokemons = async (
   return data;
 };
 
-export const getPokemon = async (name: string) => {
+export const getPokemon = async (name: string): Promise<Details> => {
   const { data } = await axios.get<Details>(
     `${import.meta.env.VITE_POKEMON_API_URL}/${name}`
   );
@@ -20,18 +20,10 @@ export const getPokemon = async (name: string) => {
   return data;
 };
 
-export const getPokemonDetails = async (id: string) => {
+export const getPokemonDetails = async (id: string): Promise<Details> => {
   const { data } = await axios.get<Details>(
     `${import.meta.env.VITE_POKEMON_API_URL}/${id}`
   );
 
-  return {
-    id: data.id,
-    name: data.name,
-    weight: data.weight,
-    height: data.height,
-    stats: data.stats,
-    types: data.types,
-    forms: data.forms,
-  };
+  return data;
 };
