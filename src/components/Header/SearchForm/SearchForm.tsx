@@ -20,6 +20,7 @@ function SearchForm() {
     <form
       className='flex gap-4 items-center justify-center lg:basis-2/5 relative'
       onSubmit={handleSubmit(onSubmit)}
+      autoComplete='off'
     >
       <label
         htmlFor='search'
