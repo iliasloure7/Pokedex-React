@@ -5,18 +5,10 @@ import Spinner from '../../common/Spinner';
 import Error from '../../common/Error';
 import { useParams } from 'react-router-dom';
 import { usePokemonDetailsQuery } from '../../queries/usePokemonDetailsQuery';
-import { useSidebarContext } from '../../context/SidebarProvider/SidebarProvider';
-import { useEffect } from 'react';
 
 function Details() {
   const { id } = useParams();
   const { data, isLoading, isError, error } = usePokemonDetailsQuery(id!);
-  const { toggleSidebar, setToggleSidebar } = useSidebarContext();
-
-  useEffect(() => {
-    if (!toggleSidebar) return;
-    setToggleSidebar(false);
-  }, []);
 
   if (isLoading) {
     return <Spinner />;
