@@ -1,8 +1,8 @@
 import { MdFavorite } from 'react-icons/md';
-import { usePokemonContext } from '../../../context/PokemonProvider/PokemonProvider';
+import { useSidebarContext } from '../../../context/SidebarProvider/SidebarProvider';
 
 function FavoritesButton() {
-  const { setToggleSidebar } = usePokemonContext();
+  const { setToggleSidebar } = useSidebarContext();
 
   return (
     <button

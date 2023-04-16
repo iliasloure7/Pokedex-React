@@ -3,10 +3,10 @@ import Pagination from '../Pagination/Pagination';
 import Spinner from '../../common/Spinner';
 import Error from '../../common/Error';
 import { usePokemonsQuery } from '../../queries/usePokemonsQuery';
-import { usePokemonContext } from '../../context/PokemonProvider/PokemonProvider';
+import { usePaginationContext } from '../../context/PaginationProvider/PaginationProvider';
 
 function PokemonList() {
-  const { limit, offset } = usePokemonContext();
+  const { limit, offset } = usePaginationContext();
   const { data, isLoading, isError, error } = usePokemonsQuery(limit, offset);
 
   if (isLoading) return <Spinner />;

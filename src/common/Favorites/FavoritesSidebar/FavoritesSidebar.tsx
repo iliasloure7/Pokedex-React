@@ -1,15 +1,13 @@
 import Overlay from '../../Overlay';
 import Avatar from '../../Avatar/Avatar';
 import { AiOutlineClose } from 'react-icons/ai';
-import { usePokemonContext } from '../../../context/PokemonProvider/PokemonProvider';
+import { useFavoritesPokemonsContext } from '../../../context/FavoritesPokemonsProvider/FavoritesPokemonsProvider';
+import { useSidebarContext } from '../../../context/SidebarProvider/SidebarProvider';
 
 function FavoritesSidebar() {
-  const {
-    toggleSidebar,
-    setToggleSidebar,
-    favoritesPokemons,
-    removeFromFavorites,
-  } = usePokemonContext();
+  const { favoritesPokemons, removeFromFavorites } =
+    useFavoritesPokemonsContext();
+  const { toggleSidebar, setToggleSidebar } = useSidebarContext();
 
   return toggleSidebar ? (
     <Overlay alignItems='' justifyContent='flex-end'>

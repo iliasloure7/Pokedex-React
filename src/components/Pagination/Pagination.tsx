@@ -1,7 +1,7 @@
-import { usePokemonContext } from '../../context/PokemonProvider/PokemonProvider';
+import { usePaginationContext } from '../../context/PaginationProvider/PaginationProvider';
 
 function Pagination() {
-  const { limit, offset, setOffset } = usePokemonContext();
+  const { limit, offset, setOffset } = usePaginationContext();
   let disabledColor;
 
   if (offset / limit === 0) {

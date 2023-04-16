@@ -2,7 +2,7 @@ import Avatar from '../../common/Avatar';
 import Card from '../../common/Card';
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
 import { Pokemon } from '../../api/PokemonApi/types';
-import { usePokemonContext } from '../../context/PokemonProvider/PokemonProvider';
+import { useFavoritesPokemonsContext } from '../../context/FavoritesPokemonsProvider/FavoritesPokemonsProvider';
 
 type Props = {
   pokemon: Pokemon;
@@ -10,7 +10,7 @@ type Props = {
 
 function PokemonItem({ pokemon }: Props) {
   const { favoritesPokemons, addToFavorites, removeFromFavorites } =
-    usePokemonContext();
+    useFavoritesPokemonsContext();
 
   return (
     <li>

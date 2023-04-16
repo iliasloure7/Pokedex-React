@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Pokemon } from '../api/PokemonApi/types';
 
 export const useLocalStorage = <T>(key: string, defaultValue: Array<T>) => {
   const [value, setValue] = useState(() => {

@@ -8,7 +8,7 @@ import { usePokemonQuery } from '../../queries/usePokemonQuery';
 
 function Search() {
   const { name } = useParams();
-  const { data, isError, isLoading, error } = usePokemonQuery(name!);
+  const { data, isError, isLoading } = usePokemonQuery(name!);
 
   if (isLoading) {
     return <Spinner />;

@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import PokemonProvider from './context/PokemonProvider/PokemonProvider';
+import FavoritesPokemonsProvider from './context/FavoritesPokemonsProvider/FavoritesPokemonsProvider';
+import PaginationProvider from './context/PaginationProvider';
+import SidebarProvider from './context/SidebarProvider';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -13,9 +15,13 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
-        <PokemonProvider>
-          <App />
-        </PokemonProvider>
+        <FavoritesPokemonsProvider>
+          <PaginationProvider>
+            <SidebarProvider>
+              <App />
+            </SidebarProvider>
+          </PaginationProvider>
+        </FavoritesPokemonsProvider>
         <ReactQueryDevtools />
       </QueryClientProvider>
     </BrowserRouter>
